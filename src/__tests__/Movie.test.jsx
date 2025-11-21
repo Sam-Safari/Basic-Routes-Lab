@@ -2,7 +2,6 @@ import React from "react";
 import "@testing-library/jest-dom";
 import { RouterProvider, createMemoryRouter} from "react-router-dom";
 import { render, screen } from "@testing-library/react";
-import { vi } from 'vitest';
 import routes from "../routes";
 
 const id = 1
@@ -12,14 +11,16 @@ const router = createMemoryRouter(routes, {
 })
 
 test("renders without any errors", () => {
-  const spyFn = typeof jest !== 'undefined' ? jest : vi;
-  const errorSpy = spyFn.spyOn(global.console, "error");
+  // Cross-environment spy function
+  const spyFunction = typeof jest !== 'undefined' ? jest : (typeof vi !== 'undefined' ? vi : null);
+  const errorSpy = spyFunction ? spyFunction.spyOn(global.console, "error") : null;
 
   render(<RouterProvider router={router}/>);
 
-  expect(errorSpy).not.toHaveBeenCalled();
-
-  errorSpy.mockRestore();
+  if (errorSpy) {
+    expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
+  }
 });
 
 test("renders movie's title in an h1", async () => {

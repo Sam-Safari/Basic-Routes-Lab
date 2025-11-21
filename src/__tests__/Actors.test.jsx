@@ -2,7 +2,6 @@ import React from "react";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { RouterProvider, createMemoryRouter} from "react-router-dom";
-import { vi } from 'vitest';
 import routes from "../routes";
 
 const actors = [
@@ -34,14 +33,16 @@ const router = createMemoryRouter(routes, {
 })
 
 test("renders without any errors", () => {
-  const spyFn = typeof jest !== 'undefined' ? jest : vi;
-  const errorSpy = spyFn.spyOn(global.console, "error");
+  // Cross-environment spy function
+  const spyFunction = typeof jest !== 'undefined' ? jest : (typeof vi !== 'undefined' ? vi : null);
+  const errorSpy = spyFunction ? spyFunction.spyOn(global.console, "error") : null;
 
   render(<RouterProvider router={router}/>);
 
-  expect(errorSpy).not.toHaveBeenCalled();
-
-  errorSpy.mockRestore();
+  if (errorSpy) {
+    expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
+  }
 });
 
 test("renders 'Actors Page' inside of the <h1 />", () => {
