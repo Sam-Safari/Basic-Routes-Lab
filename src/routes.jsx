@@ -1,3 +1,4 @@
+import React from "react";
 import Home from "./pages/Home";
 import Actors from "./pages/Actors";
 import Directors from "./pages/Directors";
