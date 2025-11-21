@@ -40,7 +40,7 @@ test("renders a span for each genre", async () => {
   render(<RouterProvider router={router} />);
   const genres = ["Action", "Adventure", "Fantasy"];
   for (const genre of genres) {
-    const span = await screen.findByText(genre);
+    const span = await screen.findByText(new RegExp(genre));
     expect(span).toBeInTheDocument();
     expect(span.tagName).toBe("SPAN");
   }
