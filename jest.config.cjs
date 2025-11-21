@@ -1,6 +1,5 @@
 module.exports = {
-  testEnvironment: 'jsdom',
-  testEnvironmentOptions: {},
+  testEnvironment: require.resolve('jest-environment-jsdom'),
   setupFilesAfterEnv: ['<rootDir>/src/__tests__/jest.setup.js'],
   testMatch: ['**/__tests__/**/*.test.jsx'],
   moduleNameMapper: {
