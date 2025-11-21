@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
-import { Link } from "react-router-dom";
+import MovieCard from "../components/MovieCard";
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -20,10 +20,7 @@ function Home() {
       <main>
         <h1>Home Page</h1>
         {movies.map(movie => (
-          <div key={movie.id}>
-            <h2>{movie.title}</h2>
-            <Link to={`/movie/${movie.id}`}>View Info</Link>
-          </div>
+          <MovieCard key={movie.id} title={movie.title} id={movie.id} />
         ))}
       </main>
     </>

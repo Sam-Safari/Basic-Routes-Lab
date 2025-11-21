@@ -3,12 +3,13 @@ import Home from "./pages/Home";
 import Actors from "./pages/Actors";
 import Directors from "./pages/Directors";
 import Movie from "./pages/Movie";
+import ErrorPage from "./pages/ErrorPage";
 
 const routes = [
   {
     path: "/",
     element: <Home />,
-    errorElement: <h1>Oops! Looks like something went wrong.</h1>
+    errorElement: <ErrorPage />
   },
   {
     path: "/actors",
