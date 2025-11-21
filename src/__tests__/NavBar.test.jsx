@@ -35,7 +35,7 @@ test("renders a Actors <NavLink>", async () => {
 
   expect(a).toBeInTheDocument();
   expect(a.tagName).toBe("A");
-  expect(a.href).toContain("/");
+  expect(a.href).toContain("/actors");
 
   fireEvent.click(a, { button: 0 });
 
@@ -47,7 +47,7 @@ test("renders a Directors <NavLink>", async () => {
 
   expect(a).toBeInTheDocument();
   expect(a.tagName).toBe("A");
-  expect(a.href).toContain("/");
+  expect(a.href).toContain("/directors");
 
   fireEvent.click(a, { button: 0 });
 
