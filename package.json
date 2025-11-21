@@ -45,7 +45,7 @@
     "preview": "vite preview"
   },
   "jest": {
-    "testEnvironment": "jsdom",
+    "testEnvironment": "jest-environment-jsdom",
     "setupFilesAfterEnv": ["<rootDir>/src/__tests__/jest.setup.js"],
     "testMatch": ["**/__tests__/**/*.test.jsx"],
     "transform": {
