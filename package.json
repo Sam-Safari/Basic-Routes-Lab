@@ -43,5 +43,16 @@
     "test": "vitest run --reporter=@learn-co-curriculum/jest-learn-reporter --reporter=default",
     "test:jest": "jest",
     "preview": "vite preview"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/src/__tests__/jest.setup.js"],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    },
+    "testMatch": ["**/__tests__/**/*.test.jsx"]
   }
 }
