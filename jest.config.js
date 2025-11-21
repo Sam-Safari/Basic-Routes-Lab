@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/__tests__/jest.setup.js'],
   moduleNameMapper: {
@@ -21,10 +21,7 @@ export default {
     'src/**/*.{js,jsx,ts,tsx}',
     '!src/**/*.d.ts',
   ],
-  extensionsToTreatAsEsm: ['.jsx'],
-  globals: {
-    'ts-jest': {
-      useESM: true
-    }
+  testEnvironmentOptions: {
+    url: 'http://localhost'
   }
 };
