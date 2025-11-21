@@ -46,7 +46,9 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
-    "testEnvironmentOptions": {},
+    "testEnvironmentOptions": {
+      "url": "http://localhost:3000"
+    },
     "setupFilesAfterEnv": [
       "<rootDir>/src/__tests__/jest.setup.js"
     ],
