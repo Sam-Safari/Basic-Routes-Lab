@@ -24,13 +24,10 @@ function Movie() {
       </header>
       <main>
         <h1>{movie.title}</h1>
-        <p>Time: {movie.time} minutes</p>
+        <p>{movie.time}</p>
         <div>
-          <span>Genres: </span>
-          {movie.genres.map((genre, index) => (
-            <span key={genre}>
-              {genre}{index < movie.genres.length - 1 ? ", " : ""}
-            </span>
+          {movie.genres.map((genre) => (
+            <span key={genre}>{genre}</span>
           ))}
         </div>
       </main>
